@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<inkml:ink xmlns:inkml="http://www.w3.org/2003/InkML">
+	<inkml:definitions>
+		<inkml:context xml:id="ctx0">
+			<inkml:inkSource xml:id="inkSrc0">
+				<inkml:traceFormat>
+					<inkml:channel name="X" type="integer" max="32767" units="in"/>
+					<inkml:channel name="Y" type="integer" max="32767" units="in"/>
+					<inkml:channel name="F" type="integer" max="32767" units="dev"/>
+				</inkml:traceFormat>
+				<inkml:channelProperties>
+					<inkml:channelProperty channel="X" name="resolution" value="3971.75757" units="1/in"/>
+					<inkml:channelProperty channel="Y" name="resolution" value="5295.24854" units="1/in"/>
+					<inkml:channelProperty channel="F" name="resolution" value="0" units="1/dev"/>
+				</inkml:channelProperties>
+			</inkml:inkSource>
+			<inkml:timestamp xml:id="ts0" timeString="2011-02-22T00:21:40.232"/>
+		</inkml:context>
+		<inkml:brush xml:id="br0">
+			<inkml:brushProperty name="width" value="0.06667" units="cm"/>
+			<inkml:brushProperty name="height" value="0.06667" units="cm"/>
+			<inkml:brushProperty name="color" value="#ED1C24"/>
+			<inkml:brushProperty name="fitToCurve" value="1"/>
+		</inkml:brush>
+		<inkml:brush xml:id="br1">
+			<inkml:brushProperty name="width" value="0.46667" units="cm"/>
+			<inkml:brushProperty name="height" value="0.46667" units="cm"/>
+			<inkml:brushProperty name="color" value="#3165BB"/>
+			<inkml:brushProperty name="fitToCurve" value="1"/>
+		</inkml:brush>
+	</inkml:definitions>
+	<inkml:traceGroup>
+		<inkml:annotationXML>
+			<emma:emma xmlns:emma="http://www.w3.org/2003/04/emma" version="1.0">
+				<emma:interpretation id="{22A735BD-677F-45A8-8452-647A2916BD08}" emma:medium="tactile" emma:mode="ink">
+					<msink:context xmlns:msink="http://schemas.microsoft.com/ink/2010/main" type="writingRegion" rotatedBoundingBox="971,1491 14386,1403 14434,8726 1019,8814"/>
+				</emma:interpretation>
+			</emma:emma>
+		</inkml:annotationXML>
+		<inkml:traceGroup>
+			<inkml:annotationXML>
+				<emma:emma xmlns:emma="http://www.w3.org/2003/04/emma" version="1.0">
+					<emma:interpretation id="{93CEB4DE-5E50-4D8A-A5ED-CFC42CA10B72}" emma:medium="tactile" emma:mode="ink">
+						<msink:context xmlns:msink="http://schemas.microsoft.com/ink/2010/main" type="paragraph" rotatedBoundingBox="1907,1485 14386,1403 14398,3207 1919,3289" alignmentLevel="1"/>
+					</emma:interpretation>
+				</emma:emma>
+			</inkml:annotationXML>
+			<inkml:traceGroup>
+				<inkml:annotationXML>
+					<emma:emma xmlns:emma="http://www.w3.org/2003/04/emma" version="1.0">
+						<emma:interpretation id="{20F54D5E-0590-42A7-A537-F9E91BCD89DA}" emma:medium="tactile" emma:mode="ink">
+							<msink:context xmlns:msink="http://schemas.microsoft.com/ink/2010/main" type="line" rotatedBoundingBox="1907,1485 14386,1403 14398,3207 1919,3289"/>
+						</emma:interpretation>
+					</emma:emma>
+				</inkml:annotationXML>
+				<inkml:traceGroup>
+					<inkml:annotationXML>
+						<emma:emma xmlns:emma="http://www.w3.org/2003/04/emma" version="1.0">
+							<emma:interpretation id="{678AEBDE-DC9C-4A99-B6C8-27F38F5D273C}" emma:medium="tactile" emma:mode="ink">
+								<msink:context xmlns:msink="http://schemas.microsoft.com/ink/2010/main" type="inkWord" rotatedBoundingBox="1907,1485 5518,1462 5530,3265 1919,3289"/>
+							</emma:interpretation>
+							<emma:one-of disjunction-type="recognition" id="oneOf0">
+								<emma:interpretation id="interp0" emma:lang="en-US" emma:confidence="1">
+									<emma:literal>This</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp1" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>Thins</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp2" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>Thais</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp3" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>Thi</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp4" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>this</emma:literal>
+								</emma:interpretation>
+							</emma:one-of>
+						</emma:emma>
+					</inkml:annotationXML>
+					<inkml:trace contextRef="#ctx0" brushRef="#br0">32 635 2757,'34'0'1090,"0"0"2950,-2 0-1347,2 0-1282,34 0-963,-2-33-63,1-1 321,-33 1-514,32-1 513,2 1-64,-2-34-63,1 34-1,33-34-513,0 33 192,-32-33-256,-2 0 64,1 34 129,-1-1-386,-32 2 514,-34-3-449,34 35 384,-34 0 1,0 0-770,0 35 705,0 64-128,0 35-64,0 34 64,-34-1-192,0-1 128,2 2 128,-36-1-192,35 1 193,-67-34-258,34-1 193,-36-32 129,36 0-257,-35-68 384,35 1-191,-34-34 255,32 0 65,-31-67-641,31-34 448,2 0-192,32 1-256,0 0 384,1-1-512,33 34 448,0 34-64,0 33-256,0 0 128,0 0-321,0 0 513,33 33-64,35 1-192,-2 33 256,2-34-192,31 34 64,1-67 0,2 34-449,31-34 513,1-34 321,0-33-257,33-33 1,0-66-450,-33-2 385,0 34-320,-1-67 63,-33 67 193,-32 0-449,-2 0 321,-32 67 192,-34 35-64,0-3 129,0 35-578,-34 0 64,-32 35 321,-2 64-257,-32 35 321,33 34 0,1-1 0,32 34 257,0-1-642,0 1 513,34-67-128,-32-1 0,32-32 193,0-34-450,0-33 514,0-34-129,0 0 0,0 0 257,0-68-706,66 1 449,2-66 1,-2 32-258,35 1 65,-35-1-192,-32 36 256,32 65-128,-66 0 128,34 65 320,-34 36-320,0-1 128,0 1-63,0-1-194,0 0 322,0-66-386,0 0 322,0-34 319,34 0-448,33-34 193,33-33-514,34-34 257,-34-32 64,-33 32-449,-1 34 449,-66 0-64,34 67 128,-34 0 64,0 0-448,0 34 512,0-1-128,0 68-128,0-34 192,0 0-320,0-1 384,34-32-127,0-1-322,-34-33 514,66 0-129,-32 0 257,33-67-321,-1 1-193,34-35 386,-32 1-385,32 33 192,-33-32-257,33 32-255,-66 32 512,0 35-193,-34 0 65,32 0 193,2 67-65,-1 0 0,1 0 64,-2 33-128,36 1-128,-34-34 0,0 33 192,-34-67-128,0 34 128,0-67 0,-34 34 192,-68-34 65,3 0 256,-1 0-449,0 0 193,-1-34-321,1-33 64,66 0-256,0 1-834,2-35-1090,32 34-2501</inkml:trace>
+					<inkml:trace contextRef="#ctx0" brushRef="#br0" timeOffset="280.8036">2976 602 18916,'0'-34'-1283,"0"34"1732,0-33 1603,0 33-1924,0 0-576,0 0-1733,0 0-3333,0 0-6604</inkml:trace>
+				</inkml:traceGroup>
+				<inkml:traceGroup>
+					<inkml:annotationXML>
+						<emma:emma xmlns:emma="http://www.w3.org/2003/04/emma" version="1.0">
+							<emma:interpretation id="{1A17AB90-5B56-4D69-BAED-02FC3D29399E}" emma:medium="tactile" emma:mode="ink">
+								<msink:context xmlns:msink="http://schemas.microsoft.com/ink/2010/main" type="inkWord" rotatedBoundingBox="6557,2119 8099,2109 8106,3108 6564,3118"/>
+							</emma:interpretation>
+							<emma:one-of disjunction-type="recognition" id="oneOf1">
+								<emma:interpretation id="interp5" emma:lang="en-US" emma:confidence="1">
+									<emma:literal>is</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp6" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>io</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp7" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>His</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp8" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>Jes</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp9" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>les</emma:literal>
+								</emma:interpretation>
+							</emma:one-of>
+						</emma:emma>
+					</inkml:annotationXML>
+					<inkml:trace contextRef="#ctx0" brushRef="#br0" timeOffset="1638.021">4647 1639 1346,'0'0'-192,"0"0"1346,0 0 257,0 0-321,34 0 320,-34 0 194,0 0-65,0 0 256,0 0-577,0 0 193,0-34-834,34 34-449,33-67-64,-1 0-128,34 1 257,34-1-322,-33-34 129,-1 1 257,-32 33-514,-2 0 578,-66 35-321,33 32 0,-33 0 192,0 0-576,-33 32 191,-1 3 386,2 64-193,-2-32-129,34 0 65,0 0 257,0-34-193,0 1-193,0-1 193,0-33-64,66 0 64,-32 0 257,33 0-578,-1-33 513,36-34-320,-36 33 256,1-33 1,-1 0-322,2 0 129,-2 34 64,-32 1-128,33 32 192,-34 0-256,1 0 320,-34 0-64,33 65-64,-33 2-64,0 0 128,0 0 128,0 0 1,0-33-193,-33-1 320,33 0 1,-34-33 64,-32 0 320,32 0-256,-32 0 64,-2 0 192,1 0-448,1-33-65,-2 0-448,2-1 448,32 1-1154,34-1-1410,0 1-2181,0-1-5194</inkml:trace>
+					<inkml:trace contextRef="#ctx0" brushRef="#br0" timeOffset="1965.6252">5618 803 14940,'-68'0'-385,"68"0"1155,0 0 1474,0 0-2244,0-35-256,0 3-257,0-3-64,0 3-706,0 32-1666,0-34-4490</inkml:trace>
+				</inkml:traceGroup>
+				<inkml:traceGroup>
+					<inkml:annotationXML>
+						<emma:emma xmlns:emma="http://www.w3.org/2003/04/emma" version="1.0">
+							<emma:interpretation id="{AD0842F8-5E1A-44D2-98DD-A96DD48AE964}" emma:medium="tactile" emma:mode="ink">
+								<msink:context xmlns:msink="http://schemas.microsoft.com/ink/2010/main" type="inkWord" rotatedBoundingBox="9171,2386 10173,2380 10177,2917 9174,2923"/>
+							</emma:interpretation>
+							<emma:one-of disjunction-type="recognition" id="oneOf2">
+								<emma:interpretation id="interp10" emma:lang="en-US" emma:confidence="1">
+									<emma:literal>a</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp11" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>on</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp12" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>or</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp13" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>an</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp14" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>ar</emma:literal>
+								</emma:interpretation>
+							</emma:one-of>
+						</emma:emma>
+					</inkml:annotationXML>
+					<inkml:trace contextRef="#ctx0" brushRef="#br0" timeOffset="2823.6362">7892 1170 3398,'67'0'-513,"-67"-33"834,34 33 833,-34-34-449,32 34 65,-32-33 897,0 33-64,0-32-449,0-3 0,0 3 1,0-3-578,0 35-64,-32-32-513,-2 32 0,-33 0-513,0 0 385,-66 67 448,-1 0-512,33-2 641,1 36-193,32-68 1,36 34-1,32-33-448,0-34 192,66 0 192,34 0-705,35 0 321,31-67-1,-65 0 65,-1 33 321,0 1-450,-66 33 898,0 0-256,-34 0 320,34 0 257,-34 33-449,0 34-192,0 0-193,0-33-256,0 33 0,0-67-1091,66 33-1089,1-33-3271</inkml:trace>
+				</inkml:traceGroup>
+				<inkml:traceGroup>
+					<inkml:annotationXML>
+						<emma:emma xmlns:emma="http://www.w3.org/2003/04/emma" version="1.0">
+							<emma:interpretation id="{7411702E-E52B-42A5-A3CF-FD48F91CBF61}" emma:medium="tactile" emma:mode="ink">
+								<msink:context xmlns:msink="http://schemas.microsoft.com/ink/2010/main" type="inkWord" rotatedBoundingBox="10909,1683 14388,1660 14397,2965 10918,2988"/>
+							</emma:interpretation>
+							<emma:one-of disjunction-type="recognition" id="oneOf3">
+								<emma:interpretation id="interp15" emma:lang="en-US" emma:confidence="1">
+									<emma:literal>test</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp16" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>best</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp17" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>Best</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp18" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>hest</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp19" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>fest</emma:literal>
+								</emma:interpretation>
+							</emma:one-of>
+						</emma:emma>
+					</inkml:annotationXML>
+					<inkml:trace contextRef="#ctx0" brushRef="#br0" timeOffset="4446.057">9698 234 3590,'34'-34'449,"-34"34"513,0 0 1539,0 0-770,0 0-512,0 0-899,-68 34 65,2 66 449,-1-33-578,-33 67 449,32-34-320,2 33-513,32-31 384,1 31-127,33-33 63,0 1-64,0-1-384,33-33 128,33 0-65,2-34 386,-2 1-129,2-34 192,32 0 385,1-34-384,-1-66-257,0 33 0,-33-33-321,-1-34 321,2 35-256,-34-2 192,-34 34-321,0 0 577,0 67-192,-68 0 0,-32 0-192,33 67 320,1 34-64,-2-2-128,34 1 321,2 1-450,32-34 322,0 0-129,66-34 0,-32 1 256,66-34-384,1 0 448,-1 0-384,33-67-64,-33 0 256,2 0-512,-2-34 448,-1 1-128,-31 1-129,-34 30 514,32 2-257,-32 35-128,-34 32 256,33 0-512,0 0 512,1 0-384,-1 67-129,-33 34 385,34-34-385,-34 32 514,0 1-193,0-33 128,0 0 449,0 0-641,-34-33 577,1-1-128,-34-33-65,0 0-63,33 0-129,-32-67-128,32 0-64,0 0 0,34 34 0,-33-1 0,33 1 128,0 33-193,0 0 129,33 0 193,35 33-257,-2-33 64,35 34 128,-1-34-128,34 0 385,-34 0-129,34-34-192,-33-33 193,33-33-514,-35 1 450,1-2-450,-32-1 65,-1 3 192,-1 32-321,-32 0 321,0 0 193,-34 67 63,0 0-64,0 0-512,0 0 512,-34 34-64,0 66-63,-32-33 319,-1 32-448,-1 3 385,36-1-129,-2-34 193,34 0-64,0-2-257,34-31 64,32 33-128,-32-34-128,33-33 192,-34 0-192,34 0 256,-33 0 64,32 0-833,-32 0 0,32-33-1475,2-1-1604,-35-33-1987</inkml:trace>
+					<inkml:trace contextRef="#ctx0" brushRef="#br0" timeOffset="4789.2614">11236 736 7887,'-66'0'-577,"66"0"1218,0 0 770,0 0-514,0 0 257,34 0 193,-2 0-257,35 0 0,67 0-705,34-35-513,31 3 128,2-2-706,1 1-1794,-69 33-707,1-34-4680</inkml:trace>
+					<inkml:trace contextRef="#ctx0" brushRef="#br0" timeOffset="5787.6742">8996 701 512,'0'0'385,"32"0"1347,-32 0 127,34 0-63,34 0-257,-2 0 512,35 0 66,65-32-899,35 32 0,1-34-1282,-35 1 0,-33-1-577,-1 1-1732,-67-1-7630</inkml:trace>
+				</inkml:traceGroup>
+			</inkml:traceGroup>
+		</inkml:traceGroup>
+		<inkml:traceGroup>
+			<inkml:annotationXML>
+				<emma:emma xmlns:emma="http://www.w3.org/2003/04/emma" version="1.0">
+					<emma:interpretation id="{04797EC2-5FF7-49BE-9569-CAEE8D293B39}" emma:medium="tactile" emma:mode="ink">
+						<msink:context xmlns:msink="http://schemas.microsoft.com/ink/2010/main" type="paragraph" rotatedBoundingBox="949,6924 6772,6391 6955,8384 1132,8917" alignmentLevel="1"/>
+					</emma:interpretation>
+				</emma:emma>
+			</inkml:annotationXML>
+			<inkml:traceGroup>
+				<inkml:annotationXML>
+					<emma:emma xmlns:emma="http://www.w3.org/2003/04/emma" version="1.0">
+						<emma:interpretation id="{E218EFBE-5419-4868-BC38-51F63F4A04C4}" emma:medium="tactile" emma:mode="ink">
+							<msink:context xmlns:msink="http://schemas.microsoft.com/ink/2010/main" type="line" rotatedBoundingBox="949,6924 6772,6391 6955,8384 1132,8917"/>
+						</emma:interpretation>
+					</emma:emma>
+				</inkml:annotationXML>
+				<inkml:traceGroup>
+					<inkml:annotationXML>
+						<emma:emma xmlns:emma="http://www.w3.org/2003/04/emma" version="1.0">
+							<emma:interpretation id="{9E2E561F-8022-4F98-AEDD-78BA63AD18FA}" emma:medium="tactile" emma:mode="ink">
+								<msink:context xmlns:msink="http://schemas.microsoft.com/ink/2010/main" type="inkWord" rotatedBoundingBox="949,6924 6772,6391 6955,8384 1132,8917"/>
+							</emma:interpretation>
+							<emma:one-of disjunction-type="recognition" id="oneOf4">
+								<emma:interpretation id="interp20" emma:lang="en-US" emma:confidence="1">
+									<emma:literal>Blue</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp21" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>Bloe</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp22" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>Blve</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp23" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>B\ve</emma:literal>
+								</emma:interpretation>
+								<emma:interpretation id="interp24" emma:lang="en-US" emma:confidence="0">
+									<emma:literal>Blvd</emma:literal>
+								</emma:interpretation>
+							</emma:one-of>
+						</emma:emma>
+					</inkml:annotationXML>
+					<inkml:trace contextRef="#ctx0" brushRef="#br1" timeOffset="42307.7423">-905 6123 4168,'0'0'-898,"0"0"257,34 0 576,0 0-576,0-34-192,-34 34 512,0-32 706,33 32 256,-33-67-128,33 0-64,34-2 64,67-30-449,67-1 0,-1-1-705,35 1 0,32-1-1,-67 68-255,1 0 704,-33 33 193,-69 0 385,-65 33 641,-34 34-64,-34 33 256,-65 34-192,-35 0-256,0-35-386,-33 37-704,67-37 127,-35-65-127,69 33 256,32-67 192,34 0-256,0 0-129,34-34-320,66-33 577,33 0 513,68 0-898,-33 1 385,-1 31 257,-1 3-129,-64 32 385,31 0-577,-67 32 128,-32 37 128,0 30-63,-34 2 255,-68 33-63,-31 33-65,-35 0 322,66-34-963,-65 1 577,33-33-192,0-1 0,32-33 0,2-67-385,-1 0-63,-33 0-1797</inkml:trace>
+					<inkml:trace contextRef="#ctx0" brushRef="#br1" timeOffset="41465.3316">-402 6022 256,'-34'-67'1860,"34"35"-321,-34-2-257,34-1 385,0 35-641,-32 0 641,32 0-256,0 0-706,0 0 321,0 0-320,0 0-129,32 0 256,2 35-384,33 31 128,-1 36-192,36-3 64,-2 69 192,33-1-1025,-33 0 832,-32 1-319,32-2-65,-33-65 321,-33-1-578,-2-33 450,-32 0-1,0-67-128,0 0 129,0 0-514,0 0 65,0 0-257,0 0-1090,0-33-513,0-1-2500,-32 1-2887</inkml:trace>
+					<inkml:trace contextRef="#ctx0" brushRef="#br1" timeOffset="42838.1492">2006 5220 3783,'-67'0'256,"33"0"898,34 67 450,0-1 63,0 35-257,34 33-127,0 33-321,32 33 64,-33-32-706,1-1-640,32-67 448,-32 1-962,0-1-1089,0-66-2245</inkml:trace>
+					<inkml:trace contextRef="#ctx0" brushRef="#br1" timeOffset="43462.1572">2473 5822 1474,'68'0'-320,"-68"0"1089,34 0-128,-2 32-63,2 37 1153,0 30-962,-1 2 514,1-1-642,32 1-192,2-1-385,-2-67-192,1 1 256,0-34 0,0 0-320,-1-67 192,-32 0-257,0-67 322,-34 34 127,0-33 0,0 32-128,0-33 193,0 67 320,0 34-449,0 33-1090,0 0-2628</inkml:trace>
+					<inkml:trace contextRef="#ctx0" brushRef="#br1" timeOffset="44132.9658">3879 5822 6732,'66'0'-897,"-32"0"1153,33 0 642,-1 0-1155,34 0 1,-32 0-578,-1-35 193,0 3 449,-34-35-1,1 34 258,-34-34 319,32 0 65,-32 33 128,34-33-320,-34 34 192,0-1-257,0 1-577,-34 33 257,2 0-385,-35 0 321,33 67 256,-32 0-257,-2 33 322,2-33-1,32 33 705,0 1 450,34 0-642,0-2 577,0-32 1,68 0-899,66 0-255,65-33-1348,36-1-961,-1-33-4489</inkml:trace>
+				</inkml:traceGroup>
+			</inkml:traceGroup>
+		</inkml:traceGroup>
+	</inkml:traceGroup>
+</inkml:ink>
