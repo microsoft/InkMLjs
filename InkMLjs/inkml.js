@@ -3,6 +3,7 @@
  * Load InkML into a JavaScript object and then render the object into a canvas.
  * Capture mouse/pen/touch strokes on a canvas and save the results to InkML.
  * Tom Underhill <tomun@microsoft.com>
+ * version 0.1
  */
 
 // dpi for converting ink space (himetric) to pixels
