@@ -1,0 +1,132 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Client side conversion of InkML to SVG Example</title>
+	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="inkml.js"></script>
+
+	<style type="text/css">
+		.auto-style2
+		{
+			font-family: "Courier New" , Courier, monospace;
+		}
+		.style1
+		{
+			width: 100%;
+		}
+		#drop_zone
+		{
+			border: 2px dashed #bbb;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			padding: 25px;
+			text-align: center;
+			font: 20pt bold 'Vollkorn';
+			color: #bbb;
+			width: 600px;
+			height: 600px;
+		}
+		#drop_message
+		{
+		}
+		#CaptureCanvas
+		{
+			border: 2px dashed #bbb;
+		}
+		#CaptureRender
+		{
+			border: 2px dashed #bbb;
+		}
+	</style>
+</head>
+<body>
+	<h1>
+		Client side conversion of InkML to SVG Example</h1>
+	<div id="drop_zone">
+		<div id="drop_message">
+			Drop InkML files here
+		</div>
+		<canvas id="CanvasRender" width="600" height="600">
+		</canvas>
+	</div>
+	<output id="list">
+	</output>
+	<script type="text/javascript">
+		function handleFileSelect(evt)
+		{
+			evt.stopPropagation();
+			evt.preventDefault();
+
+			var files = evt.dataTransfer.files; // FileList object.
+
+			if (files == null)
+			{
+				alert("Drag and drop of Files is not supported in this browser.  Latest version of Chrome and FireFox work.  IE9, Safari, and Opera do not work.");
+				return;
+			}
+
+			// files is a FileList of File objects. List some properties.
+			var output = [];
+			for (var i = 0, f; f = files[i]; i++)
+			{
+				output.push('<li><strong>', f.name, '</strong> (', f.type || 'n/a', ') - ',
+						f.size, ' bytes</li>');
+
+				var reader = new FileReader();
+
+				reader.onload = (function (theFile)
+				{
+					return function (e)
+					{
+						// hide the "drop here" message
+						document.getElementById('drop_message').style.visibility = "hidden";
+
+						// get the inkml
+						var inkml = e.target.result;
+
+						// get the canvas
+						var canvas = $(document).find('#CanvasRender').get(0);
+						var drop_zone = $(document).find('#drop_zone').get(0);
+
+						// create the ink object
+						var ink = new Ink(inkml);
+
+						// clear any junk that may already be on the canvas
+						ink.clear(canvas);
+
+						// get the new width and height
+						var width = ink.getPixelWidth();
+						var height = ink.getPixelHeight();
+
+						//canvas.width = width;
+						//canvas.height = height;
+						//canvas.style = "width:" + width + "px; height:" + height + "px;";
+						//drop_zone.style = "width:" + width + "px; height:" + height + "px;";
+
+						// draw the ink
+						ink.draw(canvas, true);
+					};
+				})(f);
+
+				reader.readAsText(f);
+			}
+			document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+		}
+
+		function handleDragOver(evt)
+		{
+			evt.stopPropagation();
+			evt.preventDefault();
+		}
+
+		// Setup the dnd listeners.
+		var dropZone = document.getElementById('drop_zone');
+		dropZone.addEventListener('dragover', handleDragOver, false);
+		dropZone.addEventListener('drop', handleFileSelect, false);
+	</script>
+	<p>
+		Works on latest versions of Chrome and FireFox.  Drag and drop does not work on Safari, Opera, or IE9.
+	</p>
+</body>
+</html>
