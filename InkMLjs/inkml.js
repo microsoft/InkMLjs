@@ -54,7 +54,7 @@ $.extend(Ink.prototype,
 		// members
 		this.contexts = {};
 		this.brushes = {};
-		this.traces = [];
+		this.traces = {};
 		this.mins = [];
 		this.maxs = [];
 		this.sums = [];
@@ -111,7 +111,11 @@ $.extend(Ink.prototype,
 			if (id == null)
 				id = $(this).attr("id"); // "xml:id" fails on opera, "id" works but fails on all other browsers
 			if (id == null)
-				id = This.traces.length;
+			{
+				var count = 0;
+				for (k in This.traces) if (This.traces.hasOwnProperty(k)) count++;
+				id = "trace#" + count.toString();
+			}
 			else
 				id = "#" + id;
 			This.traces[id] = trace;
@@ -201,6 +205,10 @@ $.extend(Ink.prototype,
 				if (brush == null)
 					alert("error: brush with xml:id='" + trace.brushRef + "' not found.");
 			}
+			else if (context.brush)
+			{
+				brush = context.brush;
+			}
 			if (brush != null)
 			{
 				// TODO: alpha
@@ -215,14 +223,14 @@ $.extend(Ink.prototype,
 			}
 
 			ctx.beginPath();
-			for (var i = 0; i < trace.table.length; i++)
+			for (var i = 0; i < trace.value.length; i++)
 			{
 				if (i == 0)
 				{
 					if (ignorePressure)
 					{
-						var x = trace.table[i][0] - This.mins[0];
-						var y = trace.table[i][1] - This.mins[1];
+						var x = trace.value[i][0] - This.mins[0];
+						var y = trace.value[i][1] - This.mins[1];
 						ctx.moveTo(x, y);
 					}
 					else
@@ -235,21 +243,21 @@ $.extend(Ink.prototype,
 				{
 					if (ignorePressure)
 					{
-						var x = trace.table[i][0] - This.mins[0];
-						var y = trace.table[i][1] - This.mins[1];
+						var x = trace.value[i][0] - This.mins[0];
+						var y = trace.value[i][1] - This.mins[1];
 						ctx.lineTo(x, y);
 					}
 					else
 					{
-						var x1 = trace.table[i - 1][0] - This.mins[0];
-						var y1 = trace.table[i - 1][1] - This.mins[1];
-						var x2 = trace.table[i][0] - This.mins[0];
-						var y2 = trace.table[i][1] - This.mins[1];
+						var x1 = trace.value[i - 1][0] - This.mins[0];
+						var y1 = trace.value[i - 1][1] - This.mins[1];
+						var x2 = trace.value[i][0] - This.mins[0];
+						var y2 = trace.value[i][1] - This.mins[1];
 						if (brush)
 						{
 							// TODO: use named channels instead of assuming index 2 is force
 							var width = brush.width; // in himetric
-							var force = (trace.table[i - 1][2] + trace.table[i][2]) / 2;
+							var force = (trace.value[i - 1][2] + trace.value[i][2]) / 2;
 							if (force)
 							{
 								var avg = This.sums[2] / This.count;
@@ -285,7 +293,7 @@ $.extend(Ink.prototype,
 		// TODO: incomplete
 
 		/*
-		var i = this.table.length;
+		var i = this.value.length;
 		var x = event.offsetX;
 		var y = event.offsetY;
 
@@ -386,6 +394,8 @@ $.extend(InkContext.prototype,
 	{
 		// members
 		this.inkSource = null;
+		this.brush = null;
+		this.timestamp = null;
 		this.xFactor = 1;
 		this.yFactor = 1;
 		this.fFactor = 1;
@@ -417,6 +427,13 @@ $.extend(InkContext.prototype,
 				This.fFactor = 1 / (fChan.max - fChan.min);
 				This.fNeutral = (fChan.max - fChan.min) / 2;
 			}
+		}
+
+		// find the optional brush
+		var inkmlBrush = $(inkmlContext).find("inkml\\:brush, brush");
+		if (inkmlBrush.length)
+		{
+			This.brush = new InkBrush(inkmlBrush);
 		}
 
 		var inkmlTimestamp = $(inkmlContext).find("inkml\\:timestamp, timestamp");
@@ -757,7 +774,8 @@ $.extend(InkTrace.prototype,
 	{
 		// members
 		this.ink = ink;
-		this.table = [];
+		this.value = [];
+		this.deriv = [];
 		this.brushRef = inkmlTrace.attr("brushRef");
 		this.contextRef = inkmlTrace.attr("contextRef");
 		this.timeOffset = inkmlTrace.attr("timeOffset");
@@ -768,9 +786,11 @@ $.extend(InkTrace.prototype,
 		var trace = inkmlTrace.text();
 		var packets = trace.split(",");
 		var iPacket = 0;
+		var thisDeriv = "!";
 		while (iPacket < packets.length)
 		{
-			This.table.push([]);
+			This.value.push([]);
+			This.deriv.push([]);
 			var packet = packets[iPacket];
 
 			var iProp = 0;
@@ -780,7 +800,7 @@ $.extend(InkTrace.prototype,
 			{
 				var ch = packet.charAt(iChar);
 
-				if (isDigit(ch))
+				if (isDigit(ch) || ch == '.')
 				{
 					thisValue += ch;
 				}
@@ -788,10 +808,16 @@ $.extend(InkTrace.prototype,
 				{
 					if (thisValue.length > 0)
 					{
-						This.table[iPacket].push(parseInt(thisValue));
+						This.value[iPacket].push(parseFloat(thisValue));
+						This.deriv[iPacket].push(thisDeriv);
 						if (ch == "-")
 						{
 							thisValue = ch;
+						}
+						else if (ch == "!" || ch == "'" || ch == "\"")
+						{
+							thisValue = "";
+							thisDeriv = ch;
 						}
 						else
 						{
@@ -804,6 +830,10 @@ $.extend(InkTrace.prototype,
 						{
 							thisValue = ch;
 						}
+						else if (ch == "!" || ch == "'" || ch == "\"")
+						{
+							thisDeriv = ch;
+						}
 					}
 				}
 				iChar += 1;
@@ -811,57 +841,57 @@ $.extend(InkTrace.prototype,
 
 			if (thisValue.length > 0)
 			{
-				This.table[iPacket].push(parseInt(thisValue));
+				This.value[iPacket].push(parseFloat(thisValue));
+				This.deriv[iPacket].push(thisDeriv);
 				thisValue = "";
 			}
 
 			iPacket += 1;
 		}
 
-		// TODO: remove hack: hard coded assumption that
-		// first packet is !, the second is ', and the rest are "
+		// TODO: compute derivatives in a single pass above
 		var deltas = [];
-		for (var i = 0; i < This.table.length; i++)
+		for (var i = 0; i < This.value.length; i++)
 		{
-			for (var j = 0; j < This.table[i].length; j++)
+			for (var j = 0; j < This.value[i].length; j++)
 			{
-				if (i == 1)
+				if (This.deriv[i][j] == "'")
 				{
 					// first derivative
-					deltas.push(This.table[i][j]);
-					This.table[i][j] = This.table[i - 1][j] + deltas[j];
+					deltas.push(This.value[i][j]);
+					This.value[i][j] = This.value[i - 1][j] + deltas[j];
 				}
-				else if (i > 1)
+				else if (This.deriv[i][j] == "\"")
 				{
 					// second derivative
-					deltas[j] += This.table[i][j];
-					This.table[i][j] = This.table[i - 1][j] + deltas[j];
+					deltas[j] += This.value[i][j];
+					This.value[i][j] = This.value[i - 1][j] + deltas[j];
 				}
 
 				if (This.ink.mins.length <= j)
-					This.ink.mins.push(This.table[i][j])
+					This.ink.mins.push(This.value[i][j])
 				else
 				{
-					if (This.ink.mins[j] > This.table[i][j])
-						This.ink.mins[j] = This.table[i][j];
+					if (This.ink.mins[j] > This.value[i][j])
+						This.ink.mins[j] = This.value[i][j];
 				}
 
 				if (This.ink.maxs.length <= j)
-					This.ink.maxs.push(This.table[i][j])
+					This.ink.maxs.push(This.value[i][j])
 				else
 				{
-					if (This.ink.maxs[j] < This.table[i][j])
-						This.ink.maxs[j] = This.table[i][j];
+					if (This.ink.maxs[j] < This.value[i][j])
+						This.ink.maxs[j] = This.value[i][j];
 				}
 
 				if (This.ink.sums.length <= j)
 				{
-					This.ink.sums.push(This.table[i][j])
+					This.ink.sums.push(This.value[i][j])
 					This.ink.count++;
 				}
 				else
 				{
-					This.ink.sums[j] += This.table[i][j];
+					This.ink.sums[j] += This.value[i][j];
 					This.ink.count++;
 				}
 			}
@@ -878,7 +908,7 @@ $.extend(InkTrace.prototype,
 
 		// TODO: do first and second derivative calc to compress output
 		var traceText = "";
-		$.each(this.table, function (index, row)
+		$.each(this.value, function (index, row)
 		{
 			if (traceText.length)
 				traceText += ",";

@@ -38,6 +38,7 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Description = TFS user:snd\tomun_cp
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E7DF6F3E-96AB-4B4C-84D6-AF552913CA0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
