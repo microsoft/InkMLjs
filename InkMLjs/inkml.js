@@ -16,28 +16,27 @@ var c_xmlnsNS = "http://www.w3.org/2000/xmlns/";
 
 $(document).ready(function ()
 {
-	var doc = $(this).get(0);
 	$(this).find("canvas").each(function ()
 	{
-		var canvas = $(this);
+		var canvas = $(this).get(0);
 
-		var src = canvas.attr("data-inkml-src");
+		var src = $(this).attr("data-inkml-src");
 		if (src)
 		{
+			var ignorePressure = $(this).attr("data-inkml-ignorePressure");
+
 			$.get(src, {}, function (xml, textStatus, jqXHR)
 			{
-				var ignorePressure = canvas.attr("data-inkml-ignorePressure");
-
 				var ink = new Ink(xml);
-				ink.draw(canvas.get(0), ignorePressure);
+				ink.draw(canvas, ignorePressure);
 			});
 		}
 
-		var trg = canvas.attr("data-inkml-trg");
+		var trg = $(this).attr("data-inkml-trg");
 		if (trg)
 		{
 			var ink = new Ink();
-			ink.initForCapture(canvas.get(0));
+			ink.initForCapture(canvas);
 		}
 	});
 });
@@ -97,8 +96,12 @@ $.extend(Ink.prototype,
 			var id = $(this).attr("xml:id");
 			if (id == null)
 				id = $(this).attr("id"); // "xml:id" fails on opera, "id" works but fails on all other browsers
-			if (id == null)
-				alert("error: brush requires id");
+			if (id == null || id == "")
+			{
+				var count = 0;
+				for (k in This.brushes) if (This.brushes.hasOwnProperty(k)) count++;
+				id = "brush#" + count.toString();
+			}
 			else
 				id = "#" + id;
 			This.brushes[id] = brush;
@@ -111,7 +114,7 @@ $.extend(Ink.prototype,
 			var id = $(this).attr("xml:id");
 			if (id == null)
 				id = $(this).attr("id"); // "xml:id" fails on opera, "id" works but fails on all other browsers
-			if (id == null)
+			if (id == null || id == "")
 			{
 				var count = 0;
 				for (k in This.traces) if (This.traces.hasOwnProperty(k)) count++;
@@ -177,6 +180,35 @@ $.extend(Ink.prototype,
 		});
 
 		return inkml;
+	},
+
+	getPixelWidth: function ()
+	{
+		var This = this;
+
+		var width = This.maxs[0] - This.mins[0];
+		return width;
+	},
+
+	getPixelHeight: function ()
+	{
+		var This = this;
+
+		var height = This.maxs[1] - This.mins[1];
+		return height;
+	},
+
+	clear: function (canvas)
+	{
+		var This = this;
+
+		if (canvas.getContext == null)
+		{
+			alert("error: couldn't get context on canvas");
+			return;
+		}
+		var ctx = canvas.getContext('2d');
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
 	},
 
 	draw: function (canvas, ignorePressure)
