@@ -1,4 +1,3 @@
-
 # InkMLjs
 
 ## Project Description
@@ -37,7 +36,7 @@ Optionally, you may also specify the data-inkml-ignorepressure attribute.   If
 |![ink with pressure](/pressure.png)|![ink with no pressure](/nopressure.png)|
 
 The InkML JavaScript library can also be driven using your own JavaScript code.   Below is an example of JavaScript code loading an inkml file into an Ink() object:
-```javascripot
+```javascript
 $(this).ready(function () {
        $.get("ink1.xml", {}, function (xml, textStatus, jqXHR) {
               var ink = new Ink(xml);
@@ -48,7 +47,7 @@ Once you have an Ink() object, you can resave the object back to InkML XML;
               var inkml = ink.toInkML();
 ```
 Or you can render the Ink() into a canvas:
-```javascripot
+```javascript
               ink.draw(canvas, ignorePressure);
 ```
 Or you can walk the InkML DOM by manipulating its fields such as .contexts, .brushes, etc.
