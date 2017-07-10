@@ -9,7 +9,8 @@ Below are examples of the same InkML rendered within PowerPoint 2010 and within 
 ![InkML rendered in PowerPoint 2010](/InkMLjs/ink.png)
 
 ## InkML rendered by InkML JavaScript Library
-![InkML rendered by InkML JavaScript Library](/InkMLjs/svg.png)
+|![InkML rendered by InkML JavaScript Library](/InkMLjs/svg.png)|
+|---|
 
 ## Usage
 To use the InkMLjs on an HTML page, the page must reference both the JQuery 1.5 library and a copy of the InkMLjs library.   For example:
