@@ -1,3 +1,4 @@
+
 # InkMLjs
 
 ## Project Description
@@ -10,3 +11,57 @@ Below are examples of the same InkML rendered within PowerPoint 2010 and within 
 
 ## InkML rendered by InkML JavaScript Library
 ![InkML rendered by InkML JavaScript Library](/InkMLjs/svg.png)
+
+## Usage
+To use the InkMLjs on an HTML page, the page must reference both the JQuery 1.5 library and a copy of the InkMLjs library.   For example:
+```html
+<head>
+  <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.5.min.js"></script>
+  <script type="text/javascript" src="inkml.js"></script>
+  ...
+</head>
+```
+Then, create an HTML5 <canvas> element where you would like Ink to be rendered on the page.   The <canvas> element must have a data-inkml-src attribute which references the inkml file you wish to be rendered.   For example:
+```html
+<canvas id="Canvas1" width="600" height="300" data-inkml-src="ink1.inkml">
+</canvas>
+```
+Optionally, you may also specify the data-inkml-ignorepressure attribute.   If the value of this attribute is “true”, then and Force channels present in the InkML will be ignored. Without pressure enabled, each continuous stroke within the InkML will be rendered with a single stroke thickness, but it will be drawn using antialiasing.   With pressure enabled, strokes will be rendered with variable widths depending on the pressure applied by the stylus when the ink was original captured, but since SVG and HTML5 Canvases don’t natively support variable width strokes, the variability is approximated by rendering each segment of the stroke separately. This techinique makes it possible to approximate variable width strokes, but it destroys antialiasing. Below is an example of a canvas using the data-inkml-ignorepressure attribute:
+```html
+<canvas id="Canvas1" width="600" height="300" data-inkml-src="ink1.xml" data-inkml-ignorepressure="true">
+</canvas>
+```
+
+| `data-inkml-ignorepressure="true"` | `data-inkml-ignorepressure="false"` (default) |
+| --- | --- |
+|![ink with pressure](/pressure.png)|![ink with no pressure](/nopressure.png)|
+
+The InkML JavaScript library can also be driven using your own JavaScript code.   Below is an example of JavaScript code loading an inkml file into an Ink() object:
+```javascripot
+$(this).ready(function () {
+       $.get("ink1.xml", {}, function (xml, textStatus, jqXHR) {
+              var ink = new Ink(xml);
+              ...
+```
+Once you have an Ink() object, you can resave the object back to InkML XML;
+```javascript
+              var inkml = ink.toInkML();
+```
+Or you can render the Ink() into a canvas:
+```javascripot
+              ink.draw(canvas, ignorePressure);
+```
+Or you can walk the InkML DOM by manipulating its fields such as .contexts, .brushes, etc.
+
+## Not Yet Implemented Features
+* InkML <traceGroup>elements are read, but are not round-tripped via the toInkML() method. 
+* The traceRef attribute is not yet implemented. 
+* Not all brush properties are supported, most notably alpha and brush tip shapes. 
+* Traces that contain a single point (like a dotted ‘i’ or ‘j’) are not currently supported. 
+* Named channel types are not currently supported. X and Y are of course supported, but if a third channel is present it assume to always be Force. Any additional channels are ignored. 
+* An Ink Capture Mode is partially implemented, but it is not complete. 
+* The InkSourceRef attribute is not supported. 
+* Channel properties for X and Y are assumed to be present (defaults are not provided if they are absent from the InkML) 
+* First and second order derivative channel values are supported, but the algorithm needs to be refactored to be a single pass. 
+* First and second order derivate channel values are round-tripped as absolute values via the toInkML() method. 
+* InkML <mapping>'s are not implemented 
