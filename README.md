@@ -21,12 +21,12 @@ To use the InkMLjs on an HTML page, the page must reference both the JQuery 1.5 
   ...
 </head>
 ```
-Then, create an HTML5 <canvas> element where you would like Ink to be rendered on the page.   The <canvas> element must have a data-inkml-src attribute which references the inkml file you wish to be rendered.   For example:
+Then, create an HTML5 `<canvas>` element where you would like Ink to be rendered on the page.   The `<canvas>` element must have a `data-inkml-src` attribute which references the inkml file you wish to be rendered.   For example:
 ```html
 <canvas id="Canvas1" width="600" height="300" data-inkml-src="ink1.inkml">
 </canvas>
 ```
-Optionally, you may also specify the data-inkml-ignorepressure attribute.   If the value of this attribute is “true”, then and Force channels present in the InkML will be ignored. Without pressure enabled, each continuous stroke within the InkML will be rendered with a single stroke thickness, but it will be drawn using antialiasing.   With pressure enabled, strokes will be rendered with variable widths depending on the pressure applied by the stylus when the ink was original captured, but since SVG and HTML5 Canvases don’t natively support variable width strokes, the variability is approximated by rendering each segment of the stroke separately. This techinique makes it possible to approximate variable width strokes, but it destroys antialiasing. Below is an example of a canvas using the data-inkml-ignorepressure attribute:
+Optionally, you may also specify the `data-inkml-ignorepressure` attribute.   If the value of this attribute is `true`, then and Force channels present in the InkML will be ignored. Without pressure enabled, each continuous stroke within the InkML will be rendered with a single stroke thickness, but it will be drawn using antialiasing.   With pressure enabled, strokes will be rendered with variable widths depending on the pressure applied by the stylus when the ink was original captured, but since SVG and HTML5 Canvases don’t natively support variable width strokes, the variability is approximated by rendering each segment of the stroke separately. This techinique makes it possible to approximate variable width strokes, but it destroys antialiasing. Below is an example of a canvas using the `data-inkml-ignorepressure` attribute:
 ```html
 <canvas id="Canvas1" width="600" height="300" data-inkml-src="ink1.xml" data-inkml-ignorepressure="true">
 </canvas>
@@ -36,25 +36,25 @@ Optionally, you may also specify the data-inkml-ignorepressure attribute.   If
 | --- | --- |
 |![ignorepressure true](/nopressure.png)|![ignorepressure false](/pressure.png)|
 
-The InkML JavaScript library can also be driven using your own JavaScript code.   Below is an example of JavaScript code loading an inkml file into an Ink() object:
+The InkML JavaScript library can also be driven using your own JavaScript code.   Below is an example of JavaScript code loading an inkml file into an `Ink()` object:
 ```javascript
 $(this).ready(function () {
        $.get("ink1.xml", {}, function (xml, textStatus, jqXHR) {
               var ink = new Ink(xml);
               ...
 ```
-Once you have an Ink() object, you can resave the object back to InkML XML;
+Once you have an `Ink()` object, you can resave the object back to InkML XML;
 ```javascript
               var inkml = ink.toInkML();
 ```
-Or you can render the Ink() into a canvas:
+Or you can render the `Ink()` into a canvas:
 ```javascript
               ink.draw(canvas, ignorePressure);
 ```
-Or you can walk the InkML DOM by manipulating its fields such as .contexts, .brushes, etc.
+Or you can walk the InkML DOM by manipulating its fields such as `.contexts`, `.brushes`, etc.
 
 ## Not Yet Implemented Features
-* InkML `<traceGroup>` elements are read, but are not round-tripped via the toInkML() method. 
+* InkML `<traceGroup>` elements are read, but are not round-tripped via the `toInkML()` method. 
 * The `traceRef` attribute is not yet implemented. 
 * Not all brush properties are supported, most notably alpha and brush tip shapes. 
 * Traces that contain a single point (like a dotted ‘i’ or ‘j’) are not currently supported. 
