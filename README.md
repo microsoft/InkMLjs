@@ -34,7 +34,7 @@ Optionally, you may also specify the data-inkml-ignorepressure attribute.   If
 
 | `data-inkml-ignorepressure="true"` | `data-inkml-ignorepressure="false"` (default) |
 | --- | --- |
-|![ink with pressure](/pressure.png)|![ink with no pressure](/nopressure.png)|
+|![ignorepressure true](/nopressure.png)|![ignorepressure false](/pressure.png)|
 
 The InkML JavaScript library can also be driven using your own JavaScript code.   Below is an example of JavaScript code loading an inkml file into an Ink() object:
 ```javascript
