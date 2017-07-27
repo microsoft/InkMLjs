@@ -60,7 +60,7 @@ Or you can walk the InkML DOM by manipulating its fields such as `.contexts`, `.
 * Traces that contain a single point (like a dotted ‘i’ or ‘j’) are not currently supported. 
 * Named channel types are not currently supported. X and Y are of course supported, but if a third channel is present it assume to always be Force. Any additional channels are ignored. 
 * An Ink Capture Mode is partially implemented, but it is not complete. 
-* The `InkSourceRef` attribute is not supported. 
+* The `inkSourceRef` attribute is not supported. 
 * Channel properties for X and Y are assumed to be present (defaults are not provided if they are absent from the InkML) 
 * First and second order derivative channel values are supported, but the algorithm needs to be refactored to be a single pass. 
 * First and second order derivate channel values are round-tripped as absolute values via the `toInkML()` method. 
